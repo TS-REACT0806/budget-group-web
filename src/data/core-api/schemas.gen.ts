@@ -20,7 +20,7 @@ export const $FeatureFlag = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.510Z'
+            example: '2025-04-06T15:43:16.078Z'
         },
         updated_at: {
             anyOf: [
@@ -35,7 +35,7 @@ export const $FeatureFlag = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.511Z'
+            example: '2025-04-06T15:43:16.078Z'
         },
         deleted_at: {
             anyOf: [
@@ -88,7 +88,7 @@ export const $User = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.513Z'
+            example: '2025-04-06T15:43:16.077Z'
         },
         updated_at: {
             anyOf: [
@@ -103,7 +103,7 @@ export const $User = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.513Z'
+            example: '2025-04-06T15:43:16.077Z'
         },
         deleted_at: {
             anyOf: [
@@ -137,7 +137,7 @@ export const $User = {
         mobile_no: {
             type: 'string',
             nullable: true,
-            example: '+919876543210'
+            example: '+1234567890'
         },
         role: {
             type: 'string',
@@ -168,7 +168,7 @@ export const $Group = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.513Z'
+            example: '2025-04-06T15:43:16.080Z'
         },
         updated_at: {
             anyOf: [
@@ -183,7 +183,7 @@ export const $Group = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.513Z'
+            example: '2025-04-06T15:43:16.080Z'
         },
         deleted_at: {
             anyOf: [
@@ -242,7 +242,7 @@ export const $GroupMember = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.512Z'
+            example: '2025-04-06T15:43:16.079Z'
         },
         updated_at: {
             anyOf: [
@@ -257,7 +257,7 @@ export const $GroupMember = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.512Z'
+            example: '2025-04-06T15:43:16.079Z'
         },
         deleted_at: {
             anyOf: [
@@ -326,7 +326,7 @@ export const $GroupExpense = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.511Z'
+            example: '2025-04-06T15:43:16.078Z'
         },
         updated_at: {
             anyOf: [
@@ -341,7 +341,7 @@ export const $GroupExpense = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.511Z'
+            example: '2025-04-06T15:43:16.078Z'
         },
         deleted_at: {
             anyOf: [
@@ -377,7 +377,7 @@ export const $GroupExpense = {
                     nullable: true
                 }
             ],
-            example: '2025-04-05T11:08:49.511Z'
+            example: '2025-04-06T15:43:16.078Z'
         },
         description: {
             type: 'string',

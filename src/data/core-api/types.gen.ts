@@ -84,13 +84,8 @@ export type PostAuthLoginResponse = {
     refresh_token: string;
 };
 
-export type PostAuthTokenData = {
-    requestBody?: {
-        refresh_token: string;
-    };
-};
-
-export type PostAuthTokenResponse = {
+export type PostAuthRefreshResponse = {
+    user: User;
     access_token: string;
     refresh_token: string;
 };
@@ -424,14 +419,14 @@ export type $OpenApiTs = {
             };
         };
     };
-    '/auth/token': {
+    '/auth/refresh': {
         post: {
-            req: PostAuthTokenData;
             res: {
                 /**
-                 * Auth tokens generated successfully
+                 * Session refreshed successfully
                  */
                 200: {
+                    user: User;
                     access_token: string;
                     refresh_token: string;
                 };
@@ -453,7 +448,7 @@ export type $OpenApiTs = {
         delete: {
             res: {
                 /**
-                 * Signed out successfully
+                 * Logout successful
                  */
                 200: string;
             };

@@ -14,4 +14,11 @@ export default defineConfig({
   resolve: {
     alias: { '@': '/src' },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: process.env.VITE_API_URL,
+      },
+    },
+  },
 });

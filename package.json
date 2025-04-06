@@ -16,7 +16,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "start": "vite preview",
-    "gen:data": "openapi-ts -i http://localhost:3000/openapi.json -o src/data",
+    "gen:data": "openapi-ts -i http://localhost:3000/openapi.json -o src/data/core-api",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "lint": "eslint . --ext .ts,.tsx",

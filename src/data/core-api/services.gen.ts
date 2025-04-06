@@ -3,7 +3,7 @@
 import type { CancelablePromise } from './core/CancelablePromise';
 import { OpenAPI } from './core/OpenAPI';
 import { request as __request } from './core/request';
-import type { GetServerDateTimeResponse, GetFeatureFlagsResponse, PostAuthRegisterData, PostAuthRegisterResponse, PostAuthLoginData, PostAuthLoginResponse, PostAuthTokenData, PostAuthTokenResponse, PutAuthChangePasswordData, PutAuthChangePasswordResponse, DeleteAuthLogoutResponse, GetMeResponse, PutMeData, PutMeResponse, GetUsersSearchData, GetUsersSearchResponse, GetUsersData, GetUsersResponse, PostUsersData, PostUsersResponse, GetUsersByUserIdData, GetUsersByUserIdResponse, PutUsersByUserIdData, PutUsersByUserIdResponse, DeleteUsersByUserIdData, DeleteUsersByUserIdResponse, DeleteUsersByUserIdArchiveData, DeleteUsersByUserIdArchiveResponse, GetGroupsSearchData, GetGroupsSearchResponse, PostGroupsData, PostGroupsResponse, GetGroupsByGroupIdData, GetGroupsByGroupIdResponse, PutGroupsByGroupIdData, PutGroupsByGroupIdResponse, DeleteGroupsByGroupIdData, DeleteGroupsByGroupIdResponse, PutGroupsByGroupIdArchiveData, PutGroupsByGroupIdArchiveResponse, GetGroupMembersSearchData, GetGroupMembersSearchResponse, PostGroupMembersData, PostGroupMembersResponse, GetGroupMembersByGroupMemberIdData, GetGroupMembersByGroupMemberIdResponse, PutGroupMembersByGroupMemberIdData, PutGroupMembersByGroupMemberIdResponse, DeleteGroupMembersByGroupMemberIdData, DeleteGroupMembersByGroupMemberIdResponse, PutGroupMembersByGroupMemberIdArchiveData, PutGroupMembersByGroupMemberIdArchiveResponse, GetGroupExpensesSearchData, GetGroupExpensesSearchResponse, PostGroupExpensesData, PostGroupExpensesResponse, GetGroupExpensesByGroupExpenseIdData, GetGroupExpensesByGroupExpenseIdResponse, PutGroupExpensesByGroupExpenseIdData, PutGroupExpensesByGroupExpenseIdResponse, DeleteGroupExpensesByGroupExpenseIdData, DeleteGroupExpensesByGroupExpenseIdResponse, PutGroupExpensesByGroupExpenseIdArchiveData, PutGroupExpensesByGroupExpenseIdArchiveResponse } from './types.gen';
+import type { GetServerDateTimeResponse, GetFeatureFlagsResponse, PostAuthRegisterData, PostAuthRegisterResponse, PostAuthLoginData, PostAuthLoginResponse, PostAuthRefreshResponse, PutAuthChangePasswordData, PutAuthChangePasswordResponse, DeleteAuthLogoutResponse, GetMeResponse, PutMeData, PutMeResponse, GetUsersSearchData, GetUsersSearchResponse, GetUsersData, GetUsersResponse, PostUsersData, PostUsersResponse, GetUsersByUserIdData, GetUsersByUserIdResponse, PutUsersByUserIdData, PutUsersByUserIdResponse, DeleteUsersByUserIdData, DeleteUsersByUserIdResponse, DeleteUsersByUserIdArchiveData, DeleteUsersByUserIdArchiveResponse, GetGroupsSearchData, GetGroupsSearchResponse, PostGroupsData, PostGroupsResponse, GetGroupsByGroupIdData, GetGroupsByGroupIdResponse, PutGroupsByGroupIdData, PutGroupsByGroupIdResponse, DeleteGroupsByGroupIdData, DeleteGroupsByGroupIdResponse, PutGroupsByGroupIdArchiveData, PutGroupsByGroupIdArchiveResponse, GetGroupMembersSearchData, GetGroupMembersSearchResponse, PostGroupMembersData, PostGroupMembersResponse, GetGroupMembersByGroupMemberIdData, GetGroupMembersByGroupMemberIdResponse, PutGroupMembersByGroupMemberIdData, PutGroupMembersByGroupMemberIdResponse, DeleteGroupMembersByGroupMemberIdData, DeleteGroupMembersByGroupMemberIdResponse, PutGroupMembersByGroupMemberIdArchiveData, PutGroupMembersByGroupMemberIdArchiveResponse, GetGroupExpensesSearchData, GetGroupExpensesSearchResponse, PostGroupExpensesData, PostGroupExpensesResponse, GetGroupExpensesByGroupExpenseIdData, GetGroupExpensesByGroupExpenseIdResponse, PutGroupExpensesByGroupExpenseIdData, PutGroupExpensesByGroupExpenseIdResponse, DeleteGroupExpensesByGroupExpenseIdData, DeleteGroupExpensesByGroupExpenseIdResponse, PutGroupExpensesByGroupExpenseIdArchiveData, PutGroupExpensesByGroupExpenseIdArchiveResponse } from './types.gen';
 
 /**
  * Retrieve the server date time
@@ -28,8 +28,8 @@ export const getFeatureFlags = (): CancelablePromise<GetFeatureFlagsResponse> =>
 }); };
 
 /**
- * Register new account
- * Register a new account.
+ * Register new user
+ * Register a new user.
  * @param data The data for the request.
  * @param data.requestBody
  * @returns string Account registered successfully
@@ -43,8 +43,8 @@ export const postAuthRegister = (data: PostAuthRegisterData = {}): CancelablePro
 }); };
 
 /**
- * Sign in
- * Sign in to an account.
+ * Login to account
+ * Login to your account.
  * @param data The data for the request.
  * @param data.requestBody
  * @returns unknown Login successfully
@@ -58,18 +58,14 @@ export const postAuthLogin = (data: PostAuthLoginData = {}): CancelablePromise<P
 }); };
 
 /**
- * Get new auth tokens
- * Get new access token & refresh token.
- * @param data The data for the request.
- * @param data.requestBody
- * @returns unknown Auth tokens generated successfully
+ * Refresh session
+ * Refresh the session of the user.
+ * @returns unknown Session refreshed successfully
  * @throws ApiError
  */
-export const postAuthToken = (data: PostAuthTokenData = {}): CancelablePromise<PostAuthTokenResponse> => { return __request(OpenAPI, {
+export const postAuthRefresh = (): CancelablePromise<PostAuthRefreshResponse> => { return __request(OpenAPI, {
     method: 'POST',
-    url: '/auth/token',
-    body: data.requestBody,
-    mediaType: 'application/json'
+    url: '/auth/refresh'
 }); };
 
 /**
@@ -88,9 +84,9 @@ export const putAuthChangePassword = (data: PutAuthChangePasswordData = {}): Can
 }); };
 
 /**
- * Sign out
- * Sign out current session
- * @returns string Signed out successfully
+ * Logout user
+ * Logout user by invalidating cookies
+ * @returns string Logout successful
  * @throws ApiError
  */
 export const deleteAuthLogout = (): CancelablePromise<DeleteAuthLogoutResponse> => { return __request(OpenAPI, {
